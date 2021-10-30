@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Card from '../Card'
+
 import './styles.scss'
 
-const CardsContainer = ({ children }) => {
+const CardsContainer = ({ heroes }) => {
   return (
     <div className='CardsContainer'>
-      {children}
+      {heroes.length > 0 && (
+        heroes.map((hero, index) => (
+          <Card key={hero.id + index} hero={hero} />
+        ))
+      )}
     </div>
   )
 }
@@ -14,5 +20,5 @@ const CardsContainer = ({ children }) => {
 export default CardsContainer
 
 CardsContainer.propTypes = {
-  children: PropTypes.array
+  heroes: PropTypes.array
 }
