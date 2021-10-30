@@ -11,6 +11,11 @@
   A application using <a href="https://superheroapi.com/">SuperHero API</a>.
 </p>
 
+![](https://github.com/caiqalmeida/heroes/blob/main/src/assets/img/background.png)
+
+<br>
+<br>
+
 ## 📝 Table of Contents
 
 - [Demo](#demo)
