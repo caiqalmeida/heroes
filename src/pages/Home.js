@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 import TopBar from '../components/molecules/TopBar'
 import SideBar from '../components/molecules/SideBar'
@@ -8,54 +10,37 @@ import Container from '../components/atoms/Container'
 import Card from '../components/atoms/Card'
 import DetailsModal from '../components/molecules/DetailsModal'
 
-import { getHeroesBySearch } from '../services/api'
+import { getInitialHeroes } from '../store/search/action'
 
 const Home = () => {
-  const [heroes, setHeroes] = useState([])
-  const [selectedHero, setSelectedHero] = useState()
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [searchHeroName, setSearchHeroName] = useState('')
+  const { isModalOpen } = useSelector(state => state.modal)
+  const { heroes } = useSelector(state => state.search)
 
-  async function getInitialHeroes () {
-    const listOfHeroes = await getHeroesBySearch('Ab')
-    setHeroes(listOfHeroes)
+  const dispatch = useDispatch()
+
+  async function getHeroesOnLoad () {
+    dispatch(getInitialHeroes())
   }
 
-  async function getSearchedHeroes () {
-    const listOfHeroes = await getHeroesBySearch(searchHeroName)
-    console.log('list of heroes', listOfHeroes)
-    if (listOfHeroes !== undefined && listOfHeroes.length > 0) {
-      setHeroes(listOfHeroes)
-    }
-  }
-
-  function handleClick (hero) {
-    setIsModalOpen(true)
-    setSelectedHero(hero)
-  }
-
-  function closeModal () {
-    setIsModalOpen(false)
-  }
-
+  /* eslint-disable */
   useEffect(() => {
-    getInitialHeroes()
+    getHeroesOnLoad()
   }, [])
 
   return (
     <div className='app'>
       <TopBar />
       <MainContainer>
-        <SideBar searchHeroName={searchHeroName} setSearchHeroName={setSearchHeroName} getSearchedHeroes={getSearchedHeroes} />
+        <SideBar />
         <Container className='relative'>
           <CardsContainer>
             {heroes.length > 0 && (
-              heroes.map((hero) => (
-                <Card key={hero.id} hero={hero} handleClick={() => handleClick(hero)} />
+              heroes.map((hero, index) => (
+                <Card key={hero.id + index} hero={hero} />
               ))
             )}
           </CardsContainer>
-          {isModalOpen && <DetailsModal closeModal={closeModal} hero={selectedHero} />}
+          {isModalOpen && <DetailsModal />}
         </Container>
       </MainContainer>
     </div>

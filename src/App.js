@@ -1,10 +1,16 @@
+import { Provider } from 'react-redux'
+
 import './assets/scss/global.scss'
+
+import store from './store'
 
 import Home from './pages/Home'
 function App () {
   return (
     <>
-      <Home />
+      <Provider store={store}>
+        <Home />
+      </Provider>
     </>
   )
 }

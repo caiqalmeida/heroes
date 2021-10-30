@@ -1,14 +1,25 @@
 import React, { } from 'react'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { closeModal } from '../../../store/modal/action'
+
 import './styles.scss'
 
-const DetailsModal = ({ closeModal, hero }) => {
+const DetailsModal = () => {
+  const { hero } = useSelector(state => state.modal)
+  const hasHero = Object.keys(hero).length
+  const dispatch = useDispatch()
+
+  function handleClick () {
+    dispatch(closeModal())
+  }
+
   return (
     <>
-      {Object.keys(hero).length && (
+      {hasHero && (
         <div className='details-modal'>
           <div className='details-modal__close-container'>
-            <button className='details-modal__close-container__button' onClick={closeModal}>x</button>
+            <button className='details-modal__close-container__button' onClick={handleClick}>x</button>
           </div>
           <div className='details-modal__content'>
 

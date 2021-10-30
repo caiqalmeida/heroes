@@ -4,7 +4,7 @@ const api = axios.create({
   baseURL: 'https://superheroapi.com/api.php/1071944033543904'
 })
 export function getHeroesBySearch (searchedValue) {
-  return api.get(`/search/${searchedValue}`).then((res) => res.data.results)
+  return api.get(`/search/${searchedValue}`).then((res) => res)
 }
 
 export default api

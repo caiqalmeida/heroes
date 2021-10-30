@@ -1,10 +1,19 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
+import { openModal, setHero } from '../../../store/modal/action'
+import Text from '../Text'
 import './styles.scss'
 
-import Text from '../Text'
+// handleClick
+const Card = ({ hero }) => {
+  const dispatch = useDispatch()
 
-const Card = ({ hero, handleClick }) => {
+  function handleClick () {
+    dispatch(openModal())
+    dispatch(setHero(hero))
+  }
+
   return (
     <div className='card' onClick={handleClick}>
       <img className='card__img' src={hero?.image?.url} alt={hero?.name} />
