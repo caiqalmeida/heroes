@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './styles.scss'
 
@@ -9,3 +10,8 @@ const Title = ({ className = '', children, ...props }) => {
 }
 
 export default Title
+
+Title.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.array
+}

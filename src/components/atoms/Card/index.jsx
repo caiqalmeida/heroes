@@ -1,11 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch } from 'react-redux'
 
 import { openModal, setHero } from '../../../store/modal/action'
 import Text from '../Text'
 import './styles.scss'
 
-// handleClick
 const Card = ({ hero }) => {
   const dispatch = useDispatch()
 
@@ -25,3 +25,7 @@ const Card = ({ hero }) => {
 }
 
 export default Card
+
+Card.propTypes = {
+  hero: PropTypes.object
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './styles.scss'
 
@@ -19,3 +20,7 @@ const Logo = ({ variant = 'white' }) => {
 }
 
 export default Logo
+
+Logo.propTypes = {
+  variant: PropTypes.string
+}
