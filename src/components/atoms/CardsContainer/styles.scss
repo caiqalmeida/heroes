@@ -1,0 +1,21 @@
+.CardsContainer {
+  position: relative;
+  background: var(--white);
+  width: 100%;
+  height: 75vh;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  border-radius: 8px;
+  overflow-y: auto;
+
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

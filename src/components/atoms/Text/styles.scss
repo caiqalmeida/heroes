@@ -1,0 +1,29 @@
+.text {
+  font-size: 1.6rem;
+
+  &.alignCenter {
+    text-align: center;
+  }
+
+  &.lightGrey {
+    color: var(--light-grey)
+  }
+
+  &.darkGrey {
+    color: var(--dark-grey)
+  }
+
+  &.white {
+    color: var(--white)
+  }
+
+  &.blue {
+    color: var(--blue)
+  }
+
+  &.inline {
+    display: inline;
+  }
+
+
+}

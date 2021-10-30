@@ -1,0 +1,18 @@
+.button {
+  border: none;
+  color: var(--white);
+  background: var(--blue);
+  border: 2px solid var(--blue);
+  overflow: hidden;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  width: 150px;
+  border-radius: 8px;
+  transition: .3s all ease-in-out;
+
+  &:hover {
+    background-color: var(--white);
+    color: var(--blue);
+    border: 2px solid var(--blue)
+  }
+}

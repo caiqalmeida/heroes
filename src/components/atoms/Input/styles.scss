@@ -1,0 +1,10 @@
+.input {
+  border: 1px solid var(--blue);
+  border-radius: 8px;
+  padding: 5px 15px;
+  font-size: 1.2rem;
+
+  &:focus {
+    border: 2px solid var(--blue);
+  }
+}

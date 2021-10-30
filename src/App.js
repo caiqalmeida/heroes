@@ -1,9 +1,11 @@
 import './assets/scss/global.scss'
+
+import Home from './pages/Home'
 function App () {
   return (
-    <div className='container'>
-      <h1>Hello Heroes !</h1>
-    </div>
+    <>
+      <Home />
+    </>
   )
 }
 
