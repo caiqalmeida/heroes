@@ -32,7 +32,7 @@ export const getHeroes = () => {
   return async function (dispatch, getState) {
     try {
       const { search } = getState()
-      console.log('search', search.searchHeroName)
+      dispatch(changeSearchHeroName(''))
       const response = await getHeroesBySearch(search.searchHeroName)
       if (response.data.error) {
         throw new Error()
